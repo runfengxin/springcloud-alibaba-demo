@@ -1,0 +1,12 @@
+[Unit]
+Description=order-service
+After=syslog.target network.target
+[Service]
+WorkingDirectory=/var/lib/workspace/
+PrivateTmp=true
+Type=forking
+ExecStart=/var/lib/workspace/$Description/startup.sh
+ExecStop=/var/lib/workspace/$Description/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
